@@ -1,10 +1,11 @@
 package util
 
 import (
-	"github.com/gofiber/fiber/v2"
 	"log"
 	"os"
 	"os/signal"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 // StartServerWithGracefulShutdown function for starting server with a graceful shutdown.
