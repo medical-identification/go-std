@@ -2,6 +2,7 @@ package util
 
 import "strconv"
 
+// parsing boolean
 func ParseBoolean(value string) bool {
 	var err error
 	var result bool
