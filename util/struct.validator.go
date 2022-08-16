@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/go-playground/validator/v10"
-	"github.com/medical-identification/model"
+	"github.com/medical-identification/go-std/model"
 )
 
 var validate = validator.New()
