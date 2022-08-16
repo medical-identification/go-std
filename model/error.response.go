@@ -7,6 +7,7 @@ type ErrorValidatorMeta struct {
 	Value string `json:"value"`
 }
 
+// error struct
 type ErrorResponse struct {
 	Message string `json:"message"`
 }
