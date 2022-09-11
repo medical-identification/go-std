@@ -31,7 +31,7 @@ func Authorization() fiber.Handler {
 		}
 
 		if user == (model.UserWithRelations{}) {
-			return helper.UnauthorizedError(err, ctx)
+			return helper.UnauthorizedError(fmt.Errorf("missing or malfunction token"), ctx)
 		}
 
 		return ctx.Next()
