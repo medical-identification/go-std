@@ -22,7 +22,6 @@ type User struct {
 	Email      string         `json:"email"`
 	Phone      string         `json:"phone"`
 	ProfileImg string         `json:"profile_img"`
-	Password   string         `json:"password"`
 	Verified   bool           `json:"verified"`
 	Suspended  bool           `json:"suspended"`
 	Tos        bool           `json:"tos"`
