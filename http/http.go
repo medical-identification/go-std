@@ -7,6 +7,8 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+
+	"github.com/gofiber/fiber/v2"
 )
 
 var client *http.Client = &http.Client{}
@@ -46,6 +48,10 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 	if err != nil {
 		fmt.Printf("Error %s", err)
 		return err
+	}
+
+	if resp.StatusCode != fiber.StatusOK {
+		return fmt.Errorf(string(body))
 	}
 
 	// decode this new data and parse it to the target whic h is a memory pointer
