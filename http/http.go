@@ -46,7 +46,7 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 	body, err := ioutil.ReadAll(resp.Body)
 
 	if err != nil {
-		fmt.Printf("Error %s", err)
+		// fmt.Printf("Error %s", err)
 		return err
 	}
 
