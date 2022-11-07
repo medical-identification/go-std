@@ -97,6 +97,10 @@ func GetAnonymousFromJson(url string, target interface{}) error {
 		return err
 	}
 
+	if resp.StatusCode != fiber.StatusOK {
+		return fmt.Errorf(string(body))
+	}
+
 	// fmt.Printf("Body : %s\n", body)
 
 	// decode this new data and parse it to the target which is a memory pointer
