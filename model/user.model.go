@@ -33,14 +33,15 @@ type User struct {
 }
 
 type Detail struct {
-	ID            uuid.NullUUID `json:"id"`
-	Mid           string        `json:"mid"`
-	Country       string        `json:"country"`
-	City          string        `json:"city"`
-	Address       string        `json:"address"`
-	Gender        string        `json:"gender"`
-	Dob           time.Time     `json:"dob"`
-	MaritalStatus string        `json:"marital_status"`
+	ID            uuid.NullUUID  `json:"id"`
+	Mid           string         `json:"mid"`
+	Country       sql.NullString `json:"country"`
+	City          sql.NullString `json:"city"`
+	Address       sql.NullString `json:"address"`
+	Gender        sql.NullString `json:"gender"`
+	Dob           sql.NullTime   `json:"dob"`
+	MaritalStatus sql.NullString `json:"marital_status"`
+	State         sql.NullString `json:"state"`
 }
 
 type Nok struct {
