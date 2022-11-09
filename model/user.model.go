@@ -38,9 +38,9 @@ type Detail struct {
 	Country       string        `json:"country"`
 	City          string        `json:"city"`
 	Address       string        `json:"address"`
-	Gender        interface{}   `json:"gender"`
+	Gender        string        `json:"gender"`
 	Dob           time.Time     `json:"dob"`
-	MaritalStatus interface{}   `json:"marital_status"`
+	MaritalStatus string        `json:"marital_status"`
 }
 
 type Nok struct {
