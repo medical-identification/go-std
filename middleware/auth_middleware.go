@@ -34,6 +34,8 @@ func Authorization() fiber.Handler {
 			return helper.UnauthorizedError(fmt.Errorf("missing or malfunction token"), ctx)
 		}
 
+		ctx.Locals("user", user)
+
 		return ctx.Next()
 	}
 }
