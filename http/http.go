@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"log"
 	"net/http"
+	"os"
 
 	"github.com/gofiber/fiber/v2"
 )
@@ -26,6 +27,7 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 	// we need to add the authorization header which the server uses
 	// so we send the user token which is fetches from client device (browser/web)
 	req.Header.Set("Authorization", authorization)
+	req.Header.Set("WHITE-LIST-KEY", os.Getenv("WHITE_LIST_KEY"))
 
 	// finally, send the request to the server
 	resp, err := client.Do(req)
@@ -69,10 +71,8 @@ func GetAnonymousFromJson(url string, target interface{}) error {
 		return err
 	}
 
-	// some http end points in mid server requires to be authenticated
-	// we need to add the authorization header which the server uses
-	// so we send the user token which is fetches from client device (browser/web)
-	// req.Header.Set("Authorization", authorization)
+	// headers
+	req.Header.Set("WHITE-LIST-KEY", os.Getenv("WHITE_LIST_KEY"))
 
 	// finally, send the request to the server
 	resp, err := client.Do(req)
