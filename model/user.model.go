@@ -1,10 +1,10 @@
 package model
 
 import (
-	"database/sql"
 	"time"
 
 	"github.com/google/uuid"
+	"gopkg.in/guregu/null.v4"
 )
 
 type UserWithRelations struct {
@@ -14,39 +14,39 @@ type UserWithRelations struct {
 }
 
 type User struct {
-	ID         uuid.UUID      `json:"id"`
-	Mid        string         `json:"mid"`
-	FirstName  string         `json:"first_name"`
-	MiddleName sql.NullString `json:"middle_name"`
-	LastName   string         `json:"last_name"`
-	Email      string         `json:"email"`
-	Phone      string         `json:"phone"`
-	ProfileImg string         `json:"profile_img"`
-	Verified   bool           `json:"verified"`
-	Suspended  bool           `json:"suspended"`
-	Tos        bool           `json:"tos"`
-	Role       interface{}    `json:"role"`
-	Session    sql.NullString `json:"session"`
-	Deleted    bool           `json:"deleted"`
-	CreatedAt  time.Time      `json:"created_at"`
-	UpdatedAt  sql.NullTime   `json:"updated_at"`
+	ID         uuid.UUID   `json:"id"`
+	Mid        string      `json:"mid"`
+	FirstName  string      `json:"first_name"`
+	MiddleName null.String `json:"middle_name"`
+	LastName   string      `json:"last_name"`
+	Email      string      `json:"email"`
+	Phone      string      `json:"phone"`
+	ProfileImg string      `json:"profile_img"`
+	Verified   bool        `json:"verified"`
+	Suspended  bool        `json:"suspended"`
+	Tos        bool        `json:"tos"`
+	Role       interface{} `json:"role"`
+	Session    null.String `json:"session"`
+	Deleted    bool        `json:"deleted"`
+	CreatedAt  time.Time   `json:"created_at"`
+	UpdatedAt  null.Time   `json:"updated_at"`
 }
 
 type Detail struct {
-	ID            uuid.NullUUID  `json:"id"`
-	Mid           string         `json:"mid"`
-	Country       sql.NullString `json:"country"`
-	City          sql.NullString `json:"city"`
-	Address       sql.NullString `json:"address"`
-	Gender        sql.NullString `json:"gender"`
-	Dob           sql.NullTime   `json:"dob"`
-	MaritalStatus sql.NullString `json:"marital_status"`
-	State         sql.NullString `json:"state"`
+	ID            uuid.NullUUID `json:"id"`
+	Mid           string        `json:"mid"`
+	Country       null.String   `json:"country"`
+	City          null.String   `json:"city"`
+	Address       null.String   `json:"address"`
+	Gender        null.String   `json:"gender"`
+	Dob           null.Time     `json:"dob"`
+	MaritalStatus null.String   `json:"marital_status"`
+	State         null.String   `json:"state"`
 }
 
 type Nok struct {
 	ID        uuid.NullUUID `json:"id"`
 	Mid       string        `json:"mid"`
 	NokMid    string        `json:"nok_mid"`
-	UpdatedAt sql.NullTime  `json:"updated_at"`
+	UpdatedAt null.Time     `json:"updated_at"`
 }
