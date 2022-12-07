@@ -7,6 +7,14 @@ import (
 	"gopkg.in/guregu/null.v4"
 )
 
+type FacilityWithRelations struct {
+	*Facility
+	Rate     string           `json:"rate"`
+	Reviews  int64            `json:"reviews"`
+	Meta     *FacilityMetum   `json:"meta"`
+	Branches []FacilityBranch `json:"branches"`
+}
+
 type Facility struct {
 	ID            uuid.UUID   `json:"id"`
 	Name          string      `json:"name"`
