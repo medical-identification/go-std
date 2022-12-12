@@ -54,6 +54,7 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 	}
 
 	if resp.StatusCode != fiber.StatusOK {
+		// decoding body
 		var errResponse interface{}
 		err := json.Unmarshal([]byte(body), &errResponse)
 		if err != nil {
