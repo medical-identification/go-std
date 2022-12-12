@@ -26,7 +26,7 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 
 	// some http end points in mid server requires to be authenticated
 	// we need to add the authorization header which the server uses
-	// so we send the user token which is fetches from client device (browser/web)
+	// so we send the user token which is fetches from client device (browser/web).
 	req.Header.Set("Authorization", authorization)
 	req.Header.Set("WHITE-LIST-KEY", os.Getenv("WHITE_LIST_KEY"))
 
@@ -38,7 +38,7 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 		return err
 	}
 
-	// finally, very important, close the response body las las
+	// finally, very important, close the response body las las.
 	defer func(Body io.ReadCloser) {
 		err := Body.Close()
 		if err != nil {
