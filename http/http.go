@@ -17,7 +17,7 @@ var client *http.Client = &http.Client{}
 
 // GetFromJson send http request to mid auth server
 func GetFromJson(url string, authorization string, target interface{}) error {
-	// initialising a new request to the server
+	// initializing a new request to the server
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	// if error encounter , throw it
 	if err != nil {
@@ -78,7 +78,7 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 }
 
 func GetAnonymousFromJson(url string, target interface{}) error {
-	// initialising a new request to the server
+	// initializing a new request to the server
 	req, err := http.NewRequest(http.MethodGet, url, nil)
 	// if error encounter , throw it
 	if err != nil {
