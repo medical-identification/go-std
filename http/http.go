@@ -2,6 +2,7 @@ package http
 
 import (
 	"encoding/json"
+	"errors"
 	"fmt"
 	"io"
 	"io/ioutil"
@@ -98,7 +99,14 @@ func GetAnonymousFromJson(url string, target interface{}) error {
 	}
 
 	if resp.StatusCode != fiber.StatusOK {
-		return fmt.Errorf(string(body))
+		// return fmt.Errorf(string(body))
+		var errResponse interface{}
+		err := json.Unmarshal([]byte(err.Error()), &errResponse)
+		if err != nil {
+			return err
+		}
+		e := errResponse.(map[string]interface{})
+		return errors.New(e["message"].(string))
 	}
 
 	// fmt.Printf("Body : %s\n", body)
