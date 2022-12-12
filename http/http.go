@@ -54,7 +54,19 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 	}
 
 	if resp.StatusCode != fiber.StatusOK {
-		return fmt.Errorf(string(body))
+		var errResponse interface{}
+		err := json.Unmarshal([]byte(body), &errResponse)
+		if err != nil {
+			return err
+		}
+
+		switch errResponse.(type) {
+		case map[string]interface{}:
+			e := errResponse.(map[string]interface{})
+			return errors.New(e["message"].(string))
+		default:
+			return fmt.Errorf(string(body))
+		}
 	}
 
 	// decode this new data and parse it to the target whic h is a memory pointer
@@ -99,14 +111,19 @@ func GetAnonymousFromJson(url string, target interface{}) error {
 	}
 
 	if resp.StatusCode != fiber.StatusOK {
-		// return fmt.Errorf(string(body))
 		var errResponse interface{}
-		err := json.Unmarshal([]byte(err.Error()), &errResponse)
+		err := json.Unmarshal([]byte(body), &errResponse)
 		if err != nil {
 			return err
 		}
-		e := errResponse.(map[string]interface{})
-		return errors.New(e["message"].(string))
+
+		switch errResponse.(type) {
+		case map[string]interface{}:
+			e := errResponse.(map[string]interface{})
+			return errors.New(e["message"].(string))
+		default:
+			return fmt.Errorf(string(body))
+		}
 	}
 
 	// fmt.Printf("Body : %s\n", body)

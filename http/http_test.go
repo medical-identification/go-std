@@ -16,6 +16,7 @@ func TestError(t *testing.T) {
 		// 	t.Error("error", err)
 		// }
 		// e := errResponse.(map[string]interface{})
+		// t.Error("Error occurred", e["message"].(string))
 		t.Error("Error occurred", err)
 	}
 }
