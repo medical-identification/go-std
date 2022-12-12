@@ -5,6 +5,7 @@ go 1.18
 require (
 	github.com/go-playground/validator/v10 v10.11.0
 	github.com/gofiber/fiber/v2 v2.36.0
+	gopkg.in/guregu/null.v4 v4.0.0
 )
 
 require (
@@ -13,7 +14,6 @@ require (
 	github.com/leodido/go-urn v1.2.1 // indirect
 	golang.org/x/crypto v0.0.0-20220214200702-86341886e292 // indirect
 	golang.org/x/text v0.3.7 // indirect
-	gopkg.in/guregu/null.v4 v4.0.0 // indirect
 )
 
 require (

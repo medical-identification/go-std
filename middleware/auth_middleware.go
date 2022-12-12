@@ -1,7 +1,6 @@
 package middleware
 
 import (
-	"encoding/json"
 	"fmt"
 	"os"
 
@@ -16,7 +15,7 @@ import (
 func Authorization() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		authorization := ctx.Get("Authorization")
-		// checking if the authorization header is empty
+		// checking if the authorization header is empty.
 		if authorization == "" {
 			return ctx.Status(fiber.StatusUnauthorized).JSON(model.ErrorResponse{
 				Message: "Authorization token missing",
@@ -28,15 +27,14 @@ func Authorization() fiber.Handler {
 		var user model.UserWithRelations
 		err := http.GetFromJson(profileUrl, authorization, &user)
 		if err != nil {
-			var errInterface interface{}
-			json.Unmarshal([]byte(err.Error()), errInterface)
-			return helper.UnauthorizedError(errInterface, ctx)
+			return helper.UnauthorizedError(err, ctx)
 		}
 
 		if user == (model.UserWithRelations{}) {
 			return helper.UnauthorizedError(fmt.Errorf("missing or malfunction token"), ctx)
 		}
 
+		// passing user to the request scope.
 		ctx.Locals("user", user)
 
 		return ctx.Next()
