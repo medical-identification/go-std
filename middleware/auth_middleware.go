@@ -1,6 +1,7 @@
 package middleware
 
 import (
+	"encoding/json"
 	"fmt"
 	"os"
 
@@ -27,7 +28,9 @@ func Authorization() fiber.Handler {
 		var user model.UserWithRelations
 		err := http.GetFromJson(profileUrl, authorization, &user)
 		if err != nil {
-			return helper.UnauthorizedError(err, ctx)
+			var errInterface interface{}
+			json.Unmarshal([]byte(err.Error()), errInterface)
+			return helper.UnauthorizedError(errInterface, ctx)
 		}
 
 		if user == (model.UserWithRelations{}) {
