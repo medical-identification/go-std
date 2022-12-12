@@ -112,6 +112,7 @@ func GetAnonymousFromJson(url string, target interface{}) error {
 	}
 
 	if resp.StatusCode != fiber.StatusOK {
+		// unmarshal body
 		var errResponse interface{}
 		err := json.Unmarshal([]byte(body), &errResponse)
 		if err != nil {

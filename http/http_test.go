@@ -5,9 +5,11 @@ import (
 )
 
 func TestError(t *testing.T) {
-	url := "http://localhost:5000/user/identity/aaa"
+	url := "http://localhost:5000/api/auth/profile"
 	var body interface{}
-	err := GetAnonymousFromJson(url, &body)
+	// err := GetAnonymousFromJson(url, &body)
+	// this is a test token and remember it invalid
+	err := GetFromJson(url, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiJNSURCQUVQN0RPSiIsInNlc3Npb24iOiJhMEtoSmxzVTZfMDAyVnVMZWlKQkcifQ.3gkzURkgYU0LxyvQtKGEGNcph-JC7Ud5nYttWbHrfS", &body)
 
 	if err != nil {
 		// var errResponse interface{}
