@@ -5,6 +5,7 @@ import (
 	"os"
 
 	"github.com/medical-identification/go-std/model"
+	"github.com/medical-identification/go-std/util"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/medical-identification/go-std/http"
@@ -13,7 +14,7 @@ import (
 func ApiKeyAuthorization() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		WHITE_LIST_KEY := ctx.Get("WHITE-LIST-KEY")
-		if WHITE_LIST_KEY == os.Getenv("WHITE_LIST_KEY") || WHITE_LIST_KEY != "" {
+		if WHITE_LIST_KEY == os.Getenv("WHITE_LIST_KEY") || util.ParseBoolean(os.Getenv("IGNORE_KEY")) {
 			return ctx.Next()
 		}
 
