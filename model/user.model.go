@@ -14,24 +14,26 @@ type UserWithRelations struct {
 }
 
 type User struct {
-	ID         uuid.UUID   `json:"id"`
-	Mid        string      `json:"mid"`
-	FirstName  string      `json:"first_name"`
-	MiddleName null.String `json:"middle_name"`
-	LastName   string      `json:"last_name"`
-	Email      string      `json:"email"`
-	Phone      string      `json:"phone"`
-	ProfileImg string      `json:"profile_img"`
-	Verified   bool        `json:"verified"`
-	Suspended  bool        `json:"suspended"`
-	Tos        bool        `json:"tos"`
-	Role       interface{} `json:"role"`
-	Session    null.String `json:"session"`
-	Balance    float64     `json:"balance"`
-	Deleted    bool        `json:"deleted"`
-	CreatedAt  time.Time   `json:"created_at"`
-	Developer  bool        `json:"developer"`
-	UpdatedAt  null.Time   `json:"updated_at"`
+	ID           uuid.UUID   `json:"id"`
+	Mid          string      `json:"mid"`
+	FirstName    string      `json:"first_name"`
+	MiddleName   null.String `json:"middle_name"`
+	LastName     string      `json:"last_name"`
+	Email        string      `json:"email"`
+	Phone        string      `json:"phone"`
+	ProfileImg   string      `json:"profile_img"`
+	ProfileImgID null.String `json:"profile_img_id"`
+	Password     string      `json:"-"`
+	Verified     bool        `json:"verified"`
+	Suspended    bool        `json:"suspended"`
+	Tos          bool        `json:"tos"`
+	Role         interface{} `json:"role"`
+	Session      null.String `json:"-"`
+	Balance      float64     `json:"balance"`
+	Deleted      bool        `json:"deleted"`
+	CreatedAt    time.Time   `json:"created_at"`
+	UpdatedAt    null.Time   `json:"updated_at"`
+	Developer    bool        `json:"developer"`
 }
 
 type Detail struct {
