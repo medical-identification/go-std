@@ -9,8 +9,9 @@ import (
 
 type UserWithRelations struct {
 	User
-	Details *Detail `json:"details"`
-	Nok     *Nok    `json:"nok"`
+	Details    *Detail     `json:"details"`
+	Nok        *Nok        `json:"nok"`
+	Specialist *Specialist `json:"specialist,omitempty"`
 }
 
 type User struct {
