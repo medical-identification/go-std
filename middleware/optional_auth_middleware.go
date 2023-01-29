@@ -29,10 +29,9 @@ func OptionalAuthorization() fiber.Handler {
 
 		if user == (model.UserWithRelations{}) {
 			ctx.Next()
-		} else {
-			// passing user to the request scope.
-			ctx.Locals("user", user)
 		}
+		// passing user to the request scope.
+		ctx.Locals("user", user)
 
 		return ctx.Next()
 	}
