@@ -15,7 +15,7 @@ import (
 var validate = validator.New()
 
 func init() {
-	validate.RegisterCustomTypeFunc(ValidateValuer, sql.NullString{}, sql.NullInt64{}, sql.NullBool{}, sql.NullFloat64{}, sql.NullInt16{}, sql.NullTime{}, sql.NullByte{}, sql.NullInt32{}, uuid.NullUUID{}, null.Int{}, null.Bool{}, null.Float{}, null.String{}, null.Time{})
+	validate.RegisterCustomTypeFunc(validateValuer, sql.NullString{}, sql.NullInt64{}, sql.NullBool{}, sql.NullFloat64{}, sql.NullInt16{}, sql.NullTime{}, sql.NullByte{}, sql.NullInt32{}, uuid.NullUUID{}, null.Int{}, null.Bool{}, null.Float{}, null.String{}, null.Time{})
 }
 
 func ValidateStruct(obj interface{}) model.ErrorValidationResponse {
@@ -35,8 +35,8 @@ func ValidateStruct(obj interface{}) model.ErrorValidationResponse {
 	return errors
 }
 
-// ValidateValuer implements validator.CustomTypeFunc
-func ValidateValuer(field reflect.Value) interface{} {
+// validateValuer implements validator.CustomTypeFunc
+func validateValuer(field reflect.Value) interface{} {
 
 	// validating sql drivers
 	if valuer, ok := field.Interface().(driver.Valuer); ok {
