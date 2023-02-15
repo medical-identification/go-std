@@ -25,7 +25,7 @@ func Authorization() fiber.Handler {
 		profileUrl := fmt.Sprintf("%v/auth/profile", os.Getenv("AUTH_SERVER"))
 
 		var user model.UserWithRelations
-		err := http.GetFromJson(profileUrl, authorization, &user)
+		err := http.GetFromJson(http.MethodGet, profileUrl, authorization, &user, nil)
 		if err != nil {
 			return helper.UnauthorizedError(err, ctx)
 		}

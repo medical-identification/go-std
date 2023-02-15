@@ -1,6 +1,8 @@
+// mid http package
 package http
 
 import (
+	"net/http"
 	"testing"
 )
 
@@ -9,7 +11,7 @@ func TestError(t *testing.T) {
 	var body interface{}
 	// err := GetAnonymousFromJson(url, &body)
 	// this is a test token and remember it invalid
-	err := GetFromJson(url, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiJNSURCQUVQN0RPSiIsInNlc3Npb24iOiJhMEtoSmxzVTZfMDAyVnVMZWlKQkcifQ.3gkzURkgYU0LxyvQtKGEGNcph-JC7Ud5nYttWbHrfS", &body)
+	err := GetFromJson(http.MethodGet, url, "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJtaWQiOiJNSURCQUVQN0RPSiIsInNlc3Npb24iOiJhMEtoSmxzVTZfMDAyVnVMZWlKQkcifQ.3gkzURkgYU0LxyvQtKGEGNcph-JC7Ud5nYttWbHrfS", &body, nil)
 
 	if err != nil {
 		// var errResponse interface{}

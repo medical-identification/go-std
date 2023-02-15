@@ -1,3 +1,4 @@
+// mid http package
 package http
 
 import (
@@ -11,6 +12,21 @@ import (
 	"os"
 
 	"github.com/gofiber/fiber/v2"
+)
+
+// Common HTTP methods.
+//
+// Unless otherwise noted, these are defined in RFC 7231 section 4.3.
+const (
+	MethodGet     = "GET"
+	MethodHead    = "HEAD"
+	MethodPost    = "POST"
+	MethodPut     = "PUT"
+	MethodPatch   = "PATCH" // RFC 5789
+	MethodDelete  = "DELETE"
+	MethodConnect = "CONNECT"
+	MethodOptions = "OPTIONS"
+	MethodTrace   = "TRACE"
 )
 
 var client *http.Client = &http.Client{}
