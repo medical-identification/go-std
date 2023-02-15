@@ -16,9 +16,9 @@ import (
 var client *http.Client = &http.Client{}
 
 // GetFromJson send http request to mid auth server
-func GetFromJson(url string, authorization string, target interface{}) error {
+func GetFromJson(method, url string, authorization string, target interface{}, requestBody io.Reader) error {
 	// initializing a new request to the server
-	req, err := http.NewRequest(http.MethodGet, url, nil)
+	req, err := http.NewRequest(method, url, requestBody)
 	// if error encounter , throw it
 	if err != nil {
 		return err
@@ -77,9 +77,9 @@ func GetFromJson(url string, authorization string, target interface{}) error {
 	return json.Unmarshal(body, target)
 }
 
-func GetAnonymousFromJson(url string, target interface{}) error {
+func GetAnonymousFromJson(method, url string, target interface{}, requestBody io.Reader) error {
 	// initializing a new request to the server
-	req, err := http.NewRequest(http.MethodGet, url, nil)
+	req, err := http.NewRequest(method, url, requestBody)
 	// if error encounter , throw it
 	if err != nil {
 		return err
