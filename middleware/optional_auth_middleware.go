@@ -19,7 +19,7 @@ func OptionalAuthorization() fiber.Handler {
 			ctx.Next()
 		}
 
-		profileUrl := fmt.Sprintf("%v/auth/profile", os.Getenv("AUTH_SERVER"))
+		profileUrl := fmt.Sprintf("%v/auth/profile", os.Getenv("MID_AUTH_SERVER"))
 
 		var user model.UserWithRelations
 		err := http.GetFromJson(http.MethodGet, profileUrl, authorization, &user, nil)

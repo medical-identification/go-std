@@ -27,7 +27,7 @@ func ApiKeyAuthorization() fiber.Handler {
 			})
 		}
 
-		url := fmt.Sprintf("%v/key/%v", os.Getenv("AUTH_SERVER"), ctx.Get("ACCESS-KEY"))
+		url := fmt.Sprintf("%v/key/%v", os.Getenv("MID_AUTH_SERVER"), ctx.Get("ACCESS-KEY"))
 
 		var body interface{}
 		err := http.GetAnonymousFromJson(http.MethodGet, url, &body, nil)
