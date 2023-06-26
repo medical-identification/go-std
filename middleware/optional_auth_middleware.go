@@ -14,7 +14,7 @@ import (
 func OptionalAuthorization() fiber.Handler {
 	return func(ctx *fiber.Ctx) error {
 		authorization := ctx.Get("Authorization")
-		// checking if the authorization header is empty.
+		// checking if the authorization header is empty
 		if authorization == "" {
 			ctx.Next()
 		}
