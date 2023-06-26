@@ -11,7 +11,10 @@ import (
 
 func StructMarshaler(source interface{}, target interface{}) error {
 	// turning the data to byte
-	dataBytes, _ := json.Marshal(source)
+	dataBytes, err := json.Marshal(source)
+	if err != nil {
+		return err
+	}
 
 	// parsing it back to a struct
 	return json.Unmarshal(dataBytes, target)

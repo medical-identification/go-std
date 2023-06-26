@@ -32,15 +32,18 @@ type Facility struct {
 }
 
 type FacilityBranch struct {
-	ID         uuid.UUID `json:"id"`
-	FacilityID uuid.UUID `json:"facility_id"`
-	City       string    `json:"city"`
-	State      string    `json:"state"`
-	Country    string    `json:"country"`
-	Address    string    `json:"address"`
-	Headquater bool      `json:"headquater"`
-	CreatedAt  time.Time `json:"created_at"`
-	UpdatedAt  null.Time `json:"updated_at"`
+	ID            uuid.UUID   `json:"id"`
+	FacilityID    uuid.UUID   `json:"facility_id"`
+	City          string      `json:"city"`
+	State         string      `json:"state"`
+	Country       string      `json:"country"`
+	Address       string      `json:"address"`
+	Headquater    bool        `json:"headquater"`
+	CreatedAt     time.Time   `json:"created_at"`
+	UpdatedAt     null.Time   `json:"updated_at"`
+	ContactPhone1 null.String `json:"contact_phone1"`
+	ContactPhone2 null.String `json:"contact_phone2"`
+	ContactEmail  null.String `json:"contact_email"`
 }
 
 type FacilityMetum struct {
@@ -55,27 +58,28 @@ type FacilityMetum struct {
 }
 
 type FacilityStaff struct {
-	ID                    uuid.UUID   `json:"id"`
-	Mid                   string      `json:"mid"`
-	FacilityID            uuid.UUID   `json:"facility_id"`
-	BranchID              uuid.UUID   `json:"branch_id"`
-	Specializations       []string    `json:"specializations"`
-	Role                  string      `json:"role"`
-	Comment               null.String `json:"comment"`
-	InventoryManagement   string      `json:"inventory_management"`
-	StaffsManagement      string      `json:"staffs_management"`
-	SessionManagement     string      `json:"session_management"`
-	CanCreateSession      string      `json:"can_create_session"`
-	TestManagement        string      `json:"test_management"`
-	DepartmentsManagement string      `json:"departments_management"`
-	UnitManagement        string      `json:"unit_management"`
-	EncounterManagement   string      `json:"encounter_management"`
-	AppointmentManagement string      `json:"appointment_management"`
-	ExpenseTracker        string      `json:"expense_tracker"`
-	Settings              string      `json:"settings"`
-	CanBill               string      `json:"can_bill"`
-	ViewExpenseTracker    string      `json:"view_expense_tracker"`
-	ViewExpenseHistory    string      `json:"view_expense_history"`
-	CreatedAt             time.Time   `json:"created_at"`
-	UpdatedAt             null.Time   `json:"updated_at"`
+	ID                    uuid.UUID     `json:"id"`
+	Mid                   string        `json:"mid"`
+	FacilityID            uuid.UUID     `json:"facility_id"`
+	BranchID              uuid.NullUUID `json:"branch_id"`
+	Specializations       []string      `json:"specializations"`
+	Role                  string        `json:"role"`
+	Comment               null.String   `json:"comment"`
+	InventoryManagement   string        `json:"inventory_management"`
+	StaffsManagement      string        `json:"staffs_management"`
+	SessionManagement     string        `json:"session_management"`
+	CanCreateSession      string        `json:"can_create_session"`
+	TestManagement        string        `json:"test_management"`
+	DepartmentsManagement string        `json:"departments_management"`
+	UnitManagement        string        `json:"unit_management"`
+	EncounterManagement   string        `json:"encounter_management"`
+	AppointmentManagement string        `json:"appointment_management"`
+	ExpenseTracker        string        `json:"expense_tracker"`
+	Settings              string        `json:"settings"`
+	CanBill               string        `json:"can_bill"`
+	ExpenseHistory        string        `json:"expense_history"`
+	CreatedAt             time.Time     `json:"created_at"`
+	UpdatedAt             null.Time     `json:"updated_at"`
+	ViewBill              string        `json:"view_bill"`
+	CanEditReport         string        `json:"can_edit_report"`
 }

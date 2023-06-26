@@ -30,7 +30,6 @@ type User struct {
 	Tos          bool        `json:"tos"`
 	Role         interface{} `json:"role"`
 	Session      null.String `json:"-"`
-	Balance      float64     `json:"balance"`
 	Deleted      bool        `json:"deleted"`
 	CreatedAt    time.Time   `json:"created_at"`
 	UpdatedAt    null.Time   `json:"updated_at"`

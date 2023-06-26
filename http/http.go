@@ -50,7 +50,7 @@ func GetFromJson(method, url string, authorization string, target interface{}, r
 	resp, err := client.Do(req)
 	// if an error is encountered, return the response error
 	if err != nil {
-		fmt.Println("Errored when sending request to the server")
+		fmt.Println("Error when sending request to the server")
 		return err
 	}
 
